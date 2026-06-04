@@ -23,5 +23,16 @@ function render(items) {
 fetch(STOCK_API_URL, {
     headers: { 'X-API-Key': STOCK_API_KEY }
 })
-    .then(response => response.json())
-    .then(data => render(data.items));
+.then(response => {
+    if (!response.ok) throw new Error("Network fallback triggered");
+    return response.json();
+})
+.then(data => {
+    const cleanItems = Array.isArray(data) ? data : (data.items || []);
+    render(cleanItems);
+})
+.catch(err => {
+    console.error("Stock load safely bypassed:", err);
+    document.getElementById('stock-container').innerHTML = 
+        "<p>Inventory display temporarily offline. Please visit us directly or check back later.</p>";
+});
