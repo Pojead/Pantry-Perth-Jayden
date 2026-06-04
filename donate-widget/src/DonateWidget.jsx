@@ -114,9 +114,6 @@ export default function DonateWidget() {
                                 key={preset}
                                 type="button"
                                 className={`pp-donate__preset ${amount === preset ? 'is-selected' : ''}`}
-                                    'pp-donate__preset' +
-                                    (amount === preset ? ' is-selected' : '')
-                                }
                                 onClick={() => handlePresetClick(preset)}
                             >
                                 ${preset}
