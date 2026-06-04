@@ -113,7 +113,7 @@ export default function DonateWidget() {
                             <button
                                 key={preset}
                                 type="button"
-                                className={
+                                className={`pp-donate__preset ${amount === preset ? 'is-selected' : ''}`}
                                     'pp-donate__preset' +
                                     (amount === preset ? ' is-selected' : '')
                                 }
