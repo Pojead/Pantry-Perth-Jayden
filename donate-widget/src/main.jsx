@@ -10,6 +10,7 @@ function injectStyles() {
     const tag = document.createElement('style');
     tag.id = 'pp-donate-styles';
     tag.textContent = widgetStyles;
+    tag.setAttribute('data-app', 'pantry-perth-widget');
     document.head.appendChild(tag);
 }
 
